@@ -62,3 +62,29 @@ Notes:
 - Set at least one of `ssh_password` or `ssh_key_path` per account.
 - If both are set, key auth is used first.
 - Cache files are written in `var/`.
+
+## Desktop Launcher (Kubuntu / KDE)
+
+This repo includes a launcher file: `zerotier-connector.desktop` and an icon: `zerotier-connector.svg`.
+
+### Install (per-user)
+
+1. **Copy it into your applications folder**:  
+   `mkdir -p ~/.local/share/applications && cp zerotier-connector.desktop ~/.local/share/applications/ && chmod +x ~/.local/share/applications/zerotier-connector.desktop`
+  
+  
+2. **Edit the `.desktop` file paths**  
+   Open `zerotier-connector.desktop` and replace the placeholder paths:  
+   - `Path=/absolute/path/to/ZeroTierConnector`
+   - `Exec=... cd "/absolute/path/to/ZeroTierConnector" ...`
+   - `Icon=/absolute/path/to/ZeroTierConnector/zerotier-connector.svg`
+  
+  
+3. **Refresh KDE’s app cache** (optional, but helps it appear immediately):
+   `kbuildsycoca6`
+
+You can now launch **ZeroTier Connector** from the KDE Application Launcher.
+(If you try to run it by double-clicking in Dolphin, ensure it’s executable: *Right click → Properties → Permissions → Is executable*.)
+
+### Remove the launcher
+`rm -f ~/.local/share/applications/zerotier-connector.desktop && kbuildsycoca6`

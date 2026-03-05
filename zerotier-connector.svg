@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="bg" x1="64" y1="32" x2="448" y2="480" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+
+    <!-- Network accent (ZeroTier-like warm) -->
+    <linearGradient id="accent" x1="128" y1="96" x2="384" y2="416" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F59E0B"/>
+      <stop offset="1" stop-color="#F97316"/>
+    </linearGradient>
+
+    <!-- Terminal accent (original blue for > and dot) -->
+    <linearGradient id="termAccent" x1="128" y1="96" x2="384" y2="416" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22D3EE"/>
+      <stop offset="1" stop-color="#60A5FA"/>
+    </linearGradient>
+
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="16" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect x="48" y="48" width="416" height="416" rx="96" fill="url(#bg)"/>
+
+  <!-- Network ring -->
+  <g filter="url(#shadow)">
+    <circle cx="256" cy="228" r="116" stroke="url(#accent)" stroke-width="18" opacity="0.95"/>
+
+    <!-- Nodes -->
+    <circle cx="256" cy="112" r="14" fill="#F59E0B"/>
+    <circle cx="356" cy="168" r="14" fill="#FB923C"/>
+    <circle cx="356" cy="288" r="14" fill="#F97316"/>
+    <circle cx="256" cy="344" r="14" fill="#FDBA74"/>
+    <circle cx="156" cy="288" r="14" fill="#FB923C"/>
+    <circle cx="156" cy="168" r="14" fill="#F59E0B"/>
+
+    <!-- Subtle connecting lines -->
+    <path d="M256 112 L356 168 L356 288 L256 344 L156 288 L156 168 Z"
+          stroke="#FED7AA" stroke-width="6" opacity="0.28" stroke-linejoin="round"/>
+
+    <!-- ZT in the middle -->
+    <text x="256" y="240"
+          text-anchor="middle"
+          font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial"
+          font-size="56"
+          font-weight="800"
+          letter-spacing="2"
+          fill="#E5E7EB"
+          opacity="0.95">ZT</text>
+  </g>
+
+  <!-- Terminal badge (CLI) -->
+  <g filter="url(#shadow)">
+    <rect x="132" y="300" width="248" height="124" rx="28" fill="#0B1220" stroke="#1F2937" stroke-width="6"/>
+    <!-- Prompt chevron (keep original blue) -->
+    <path d="M170 336 L206 362 L170 388" stroke="url(#termAccent)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Cursor line -->
+    <path d="M232 388 H314" stroke="#E5E7EB" stroke-width="12" stroke-linecap="round" opacity="0.9"/>
+    <!-- Small "link" dot to imply connection (keep original blue) -->
+    <circle cx="356" cy="362" r="10" fill="#22D3EE" opacity="0.95"/>
+  </g>
+</svg>

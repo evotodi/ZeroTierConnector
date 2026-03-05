@@ -1,0 +1,19 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=ZeroTier Connector
+Comment=Pick ZeroTier members and open SSH sessions
+Categories=Network;RemoteAccess;Utility;
+Terminal=true
+
+# Make sure this points to your project folder
+Path=/absolute/path/to/ZeroTierConnector
+
+# Runs your existing launcher script from the project directory
+Exec=/usr/bin/env bash -lc 'cd "/absolute/path/to/ZeroTierConnector" && ./ZeroTierConnector.sh'
+
+# Option A (simplest): point directly at the SVG in your repo
+Icon=/absolute/path/to/ZeroTierConnector/zerotier-connector.svg
+
+# Avoid opening multiple instances from the launcher
+StartupNotify=true
