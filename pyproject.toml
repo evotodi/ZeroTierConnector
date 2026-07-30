@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "zerotier-connector"
-version = "0.1.0"
+version = "0.1.1"
 description = "CLI helper to pick ZeroTier members and open SSH sessions."
 authors = ["evotodi"]
 readme = "README.md"
