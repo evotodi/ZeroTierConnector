@@ -1,21 +1,20 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if ! command -v poetry >/dev/null 2>&1; then
-  echo "poetry not found. Installing..."
+if ! command -v uv >/dev/null 2>&1; then
+  echo "uv not found. Installing..."
   if command -v curl >/dev/null 2>&1 && command -v python3 >/dev/null 2>&1; then
-    curl -sSL https://install.python-poetry.org | python3 -
-    export PATH="${HOME}/.local/bin:${PATH}"
+    curl -sSL https://astral.sh/uv/install.sh | sh
   else
-    echo "Cannot install poetry automatically: curl and python3 are required."
+    echo "Cannot install uv automatically: curl and python3 are required."
     echo "Install them and rerun."
     exit 1
   fi
 fi
 
-if ! poetry run python -c "import requests, pydantic, click" >/dev/null 2>&1; then
-  echo "Installing dependencies with poetry..."
-  poetry install
+if ! uv run python -c "import requests, pydantic, click" >/dev/null 2>&1; then
+  echo "Installing dependencies with uv..."
+  uv sync
 fi
 
 if ! command -v sshpass >/dev/null 2>&1; then
@@ -39,4 +38,4 @@ if ! command -v sshpass >/dev/null 2>&1; then
   fi
 fi
 
-exec poetry run zerotier-connector "$@"
+exec uv run zerotier-connector "$@"

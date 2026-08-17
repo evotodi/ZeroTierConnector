@@ -17,10 +17,10 @@ Use the project script:
 ```
 
 The script will:
-- install Poetry from the official online installer if missing
-- install project dependencies with Poetry if needed
+- install UV from the official online installer if missing
+- install project dependencies with UV if needed
 - install `sshpass` if missing (via `apt-get`)
-- run `poetry run zerotier-connector`
+- run `uv run zerotier-connector`
 
 To disable menu colors:
 
